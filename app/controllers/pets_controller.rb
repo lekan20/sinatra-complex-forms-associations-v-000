@@ -27,6 +27,9 @@ class PetsController < ApplicationController
   end
 
   post '/pets/:id' do
+    #Posts the users input into the route.
+    #makes class variable with the pet that has the id in the route, updates the pet with the user's changes
+    #if the user creates a new owner, it adds that pet to the owner, and saves all the updates
     @pet = Pet.find(params[:id])
     @pet.update(params["pet"])
     if !params["owner"]["name"].empty?
