@@ -21,7 +21,7 @@ class PetsController < ApplicationController
   end
 
   get '/pets/:id' do
-
+    #Finds the pet with the specific id the user adds to thr route
     @pet = Pet.find(params[:id])
     erb :'/pets/show'
   end
