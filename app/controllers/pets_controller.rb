@@ -10,7 +10,8 @@ class PetsController < ApplicationController
     erb :'/pets/new'
   end
 
-  post '/pets' do #creates a new pet with the input from the user, if they created a new owner it makes that the pet's owner
+  post '/pets' do
+    #creates a new pet with the input from the user, if they created a new owner it makes that the pet's owner
     @pet = Pet.create(params[:pet])
     if !params["owner"]["name"].empty?
       @pet.owner = Owner.create(name: params["owner"]["name"])
@@ -20,6 +21,7 @@ class PetsController < ApplicationController
   end
 
   get '/pets/:id' do
+
     @pet = Pet.find(params[:id])
     erb :'/pets/show'
   end
